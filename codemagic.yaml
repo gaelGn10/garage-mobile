@@ -1,25 +1,20 @@
 workflows:
   ionic-android-apk:
     name: Ionic Android APK
-    max_build_duration: 68
+    max_build_duration: 60
 
     environment:
-      node: 20
+      node: 24       # <-- changer ici
       java: 21
 
     scripts:
       - name: Install dependencies
         script: |
           npm install
-          npm install @capacitor/cli @capacitor/core
 
-      - name: Build Ionic
+      - name: Build web
         script: |
           npm run build
-
-      - name: Add Android platform
-        script: |
-          npx cap add android
 
       - name: Sync Capacitor
         script: |
