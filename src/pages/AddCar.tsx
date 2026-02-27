@@ -33,7 +33,7 @@ const AddCar: React.FC = () => {
     const [interventions, setInterventions] = useState<string[]>([]);
     const history = useHistory();
 
-    const { data: repairs, loading, error } = useFirestoreCollection<any>("Intervention");
+    const { data: repairs, loading, error } = useFirestoreCollection<any>("interventions");
 
     const toggleIntervention = (name: string) => {
         setInterventions(prev =>
@@ -92,13 +92,13 @@ const AddCar: React.FC = () => {
                         {repairs.map((rep, i) => (
                             <IonItem key={i} className="glass-card mb-2" lines="none">
                                 <IonLabel>
-                                    <h2 className="font-bold">{rep.Nom}</h2>
-                                    <p className="text-sm opacity-80">Durée : {rep.Duree} | Prix : {rep.Prix}</p>
+                                    <h2 className="font-bold">{rep.name}</h2>
+                                    <p className="text-sm opacity-80">Durée : {rep.duration} | Prix : {rep.price}</p>
                                 </IonLabel>
                                 <IonCheckbox
                                     slot="end"
-                                    checked={interventions.includes(rep.Nom)}
-                                    onIonChange={() => toggleIntervention(rep.Nom)}
+                                    checked={interventions.includes(rep.name)}
+                                    onIonChange={() => toggleIntervention(rep.name)}
                                 />
                             </IonItem>
                         ))}
