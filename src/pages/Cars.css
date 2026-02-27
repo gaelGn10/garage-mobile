@@ -1,0 +1,177 @@
+/* Cars.css */
+
+/* Title styling */
+ion-title .text-gradient {
+    background: linear-gradient(to right, #a78bfa, #2dd4bf);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    font-size: 1.8rem;
+    padding-bottom: 5px;
+    /* Ensure descenders aren't cut off */
+}
+
+.header-add-button {
+    --background: rgba(255, 255, 255, 0.1);
+    --background-hover: rgba(255, 255, 255, 0.2);
+    --border-radius: 12px;
+    --color: var(--ion-color-secondary);
+    --padding-start: 12px;
+    --padding-end: 12px;
+    margin-right: 8px;
+    text-transform: none;
+    font-size: 0.9rem;
+}
+
+/* Card Styling */
+.car-card {
+    margin: 0;
+    width: 100%;
+    border-radius: 20px;
+    background: rgba(30, 41, 59, 0.6);
+    /* Slightly more transparent */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
+    position: relative;
+}
+
+.car-card:active {
+    transform: scale(0.98);
+}
+
+.car-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+
+.car-card-content {
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Icon Wrapper */
+.car-icon-wrapper {
+    background: linear-gradient(135deg, var(--ion-color-primary) 0%, var(--ion-color-secondary) 100%);
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 16px -4px rgba(76, 29, 149, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shine effect on icon */
+.car-icon-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: rotate(45deg);
+}
+
+.car-info {
+    flex-grow: 1;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 99px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-badge.success {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.status-badge.warning {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.status-badge.medium {
+    background: rgba(148, 163, 184, 0.2);
+    color: #cbd5e1;
+    border-color: rgba(148, 163, 184, 0.3);
+}
+
+/* Pill FAB Button */
+.fixed-add-button-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    padding: 16px;
+    pointer-events: none;
+}
+
+.pill-add-button {
+    pointer-events: auto;
+    --border-radius: 30px;
+    --box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.5);
+    height: 54px;
+    min-width: 160px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pill-add-button:active {
+    transform: scale(0.95);
+}
+
+.bg-gradient-secondary {
+    --background: linear-gradient(135deg, var(--ion-color-secondary) 0%, var(--ion-color-primary) 100%);
+    --color: #fff;
+}
+
+/* Animations */
+.animate-slide-up {
+    opacity: 0;
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
