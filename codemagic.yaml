@@ -11,6 +11,7 @@ workflows:
       - name: Install dependencies
         script: |
           npm install
+          npm install @capacitor/cli @capacitor/core
 
       - name: Build Ionic
         script: |
